@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:project_june1/login.dart';
+import 'package:project_june1/stateful%20login%20with%20validation.dart';
 
 void main(){
   runApp(MaterialApp(home: Splash3(),));
@@ -16,7 +17,7 @@ class _Splash3State extends State<Splash3> {
   void initState() {//what will happen when the app or page is first launched
     Timer(Duration(seconds: 1), () {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context)=>LoginPage()));
+          MaterialPageRoute(builder: (context)=>Login2()));
 
     });
     super.initState();
