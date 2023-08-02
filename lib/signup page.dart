@@ -4,7 +4,6 @@ import 'package:project_june1/login.dart';
 import 'package:project_june1/stateful%20login%20with%20validation.dart';
 
 class SignUp extends StatefulWidget {
-
   @override
   State<SignUp> createState() => _SignUpState();
 }
