@@ -13,13 +13,14 @@ class _SignUpState extends State<SignUp> {
   bool passvisibility2 = true;
   String? password;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Registration Page"),),
+      appBar: AppBar(
+        title: Text("Registration Page"),
+      ),
       body: Form(
-        key:formkey,
+        key: formkey,
         child: Column(
           children: [
             Image.asset(
@@ -56,9 +57,9 @@ class _SignUpState extends State<SignUp> {
                     suffixIcon: IconButton(
                         onPressed: () {
                           setState(() {
-                            if(passvisibility1 == true){
+                            if (passvisibility1 == true) {
                               passvisibility1 = false;
-                            }else{
+                            } else {
                               passvisibility1 = true;
                             }
                           });
@@ -70,9 +71,7 @@ class _SignUpState extends State<SignUp> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50))),
                 validator: (pass) {
-
-                  password = pass;   // value from first password field will stored to password
-
+                  password = pass; // value from first password field will stored to password
                   if (pass!.isEmpty || pass.length < 6) {
                     return "Fields are empty or password length must be >=6";
                   } else {
@@ -90,9 +89,9 @@ class _SignUpState extends State<SignUp> {
                     suffixIcon: IconButton(
                         onPressed: () {
                           setState(() {
-                            if(passvisibility2 == true){
+                            if (passvisibility2 == true) {
                               passvisibility2 = false;
-                            }else{
+                            } else {
                               passvisibility2 = true;
                             }
                           });
@@ -130,10 +129,9 @@ class _SignUpState extends State<SignUp> {
                   }
                 },
                 child: const Text("Login")),
-
           ],
         ),
-      ) ,
+      ),
     );
   }
 }
