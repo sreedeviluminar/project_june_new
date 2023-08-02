@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:project_june1/login.dart';
+import 'package:project_june1/stateful%20login%20with%20validation.dart';
 
 class SignUp extends StatefulWidget {
 
@@ -7,11 +10,16 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  var formkey = GlobalKey<FormState>();
+  bool passvisibility1 = true;
+  bool passvisibility2 = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Registration Page"),),
       body: Form(
+        key:formkey,
         child: Column(
           children: [
             Image.asset(
@@ -42,10 +50,22 @@ class _SignUpState extends State<SignUp> {
             Padding(
               padding: const EdgeInsets.only(left: 15.0, right: 15, bottom: 15),
               child: TextFormField(
-                obscureText: true,
                 obscuringCharacter: '*',
+                obscureText: passvisibility1, // showpass = true initialy
                 decoration: InputDecoration(
-                    suffixIcon: Icon(Icons.visibility_off_sharp),
+                    suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            if(passvisibility1 == true){
+                              passvisibility1 = false;
+                            }else{
+                              passvisibility1 = true;
+                            }
+                          });
+                        },
+                        icon: Icon(passvisibility1 == true
+                            ? Icons.visibility_off_sharp
+                            : Icons.visibility)),
                     hintText: "PassWord",
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50))),
@@ -61,11 +81,23 @@ class _SignUpState extends State<SignUp> {
             Padding(
               padding: const EdgeInsets.only(left: 15.0, right: 15, bottom: 15),
               child: TextFormField(
-                obscureText: true,
                 obscuringCharacter: '*',
+                obscureText: passvisibility2, // showpass = true initialy
                 decoration: InputDecoration(
-                  suffixIcon: Icon(Icons.visibility_off_sharp),
-                    hintText: "Confirm PassWord",
+                    suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            if(passvisibility2 == true){
+                              passvisibility2 = false;
+                            }else{
+                              passvisibility2 = true;
+                            }
+                          });
+                        },
+                        icon: Icon(passvisibility2 == true
+                            ? Icons.visibility_off_sharp
+                            : Icons.visibility)),
+                    hintText: "PassWord",
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50))),
                 validator: (pass) {
@@ -77,6 +109,25 @@ class _SignUpState extends State<SignUp> {
                 },
               ),
             ),
+            ElevatedButton(
+                onPressed: () {
+                  final valid = formkey.currentState!.validate();
+                  if (valid) {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Login2()));
+                  } else {
+                    Fluttertoast.showToast(
+                        msg: "Invalid Username or Password",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.TOP,
+                        // timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.red,
+                        textColor: Colors.white,
+                        fontSize: 16.0);
+                  }
+                },
+                child: const Text("Login")),
+
           ],
         ),
       ) ,
