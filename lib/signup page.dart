@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:project_june1/login.dart';
 import 'package:project_june1/stateful%20login%20with%20validation.dart';
 
 class SignUp extends StatefulWidget {
@@ -12,6 +11,8 @@ class _SignUpState extends State<SignUp> {
   var formkey = GlobalKey<FormState>();
   bool passvisibility1 = true;
   bool passvisibility2 = true;
+  String? password;
+
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +70,9 @@ class _SignUpState extends State<SignUp> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50))),
                 validator: (pass) {
+
+                  password = pass;   // value from first password field will stored to password
+
                   if (pass!.isEmpty || pass.length < 6) {
                     return "Fields are empty or password length must be >=6";
                   } else {
@@ -99,9 +103,9 @@ class _SignUpState extends State<SignUp> {
                     hintText: "PassWord",
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(50))),
-                validator: (pass) {
-                  if (pass!.isEmpty || pass.length < 6) {
-                    return "Fields are empty or password length must be >=6";
+                validator: (cpass) {
+                  if (cpass!.isEmpty || cpass != password) {
+                    return "Fields are empty or password does not match";
                   } else {
                     return null;
                   }
