@@ -31,9 +31,14 @@ class ListView1 extends StatelessWidget {
               leading: Image.asset("assets/images/pizza.png") ,
             ),
           ),
-          Text("Item 3"),
-          Text("Item 4"),
-          Text("Item 5"),
+          Card(
+            child: ListTile(
+              title: Text("Pizza"),
+              subtitle: Text("\$290"),
+              trailing: Icon(Icons.shopping_cart),
+              leading: Image.asset("assets/images/pizza.png") ,
+            ),
+          ),
         ],
       ),
     );
