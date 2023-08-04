@@ -73,10 +73,11 @@ class ListView2 extends StatelessWidget {
                       direction: Axis.vertical,
                         children: [
                       Text("12.30"),
+                      SizedBox(width:10),
                       CircleAvatar(
                         minRadius: 4,
                         maxRadius: 10,
-                        backgroundColor: Colors.teal,
+                        backgroundColor: Colors.green,
                       child: Text("2"),)
                     ]),
                   ),
