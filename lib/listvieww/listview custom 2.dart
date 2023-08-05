@@ -16,7 +16,8 @@ class ListView_Custom2 extends StatelessWidget {
       body: ListView.custom(
           childrenDelegate:
               SliverChildBuilderDelegate((context, index) =>
-                  Text("data"))),
+                  Text("data"),
+              childCount: 10)),
     );
   }
 }
