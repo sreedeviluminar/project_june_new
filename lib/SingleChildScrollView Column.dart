@@ -20,6 +20,7 @@ class SingleScroll extends StatelessWidget {
           Text(
             "Cindrella",
             style: GoogleFonts.cabinCondensed(
+              fontSize: 50,
                 fontWeight: FontWeight.bold, color: Colors.purple,),
           ),
           Expanded(
