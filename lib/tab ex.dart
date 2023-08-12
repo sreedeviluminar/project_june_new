@@ -27,7 +27,8 @@ class TabEx extends StatelessWidget {
               })
             ],
             bottom:  TabBar(
-              indicatorSize: TabBarIndicatorSize.label,
+               indicatorSize: TabBarIndicatorSize.label,
+                //isScrollable: true,
                 labelPadding: EdgeInsets.zero,
                 tabs: [
               SizedBox(
