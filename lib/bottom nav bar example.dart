@@ -26,7 +26,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.purple,
@@ -49,7 +48,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.account_circle_rounded), label: 'Profile'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.add_box_rounded), label: 'create')
+                icon: Icon(Icons.add_box_rounded),
+                label: 'create')
           ]),
       body:Center(
         child: screens[index],
