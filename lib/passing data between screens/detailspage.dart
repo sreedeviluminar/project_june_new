@@ -8,8 +8,7 @@ class ProductDetails extends StatelessWidget {
     final productId = ModalRoute.of(context)?.settings.arguments;
 
     //fetch all the values from the list which satisfy the condition
-    final product =
-        products.firstWhere((element) => element['id'] == productId);
+    final product = products.firstWhere((element) => element['id'] == productId);
 
     return Scaffold(
       appBar: AppBar(
