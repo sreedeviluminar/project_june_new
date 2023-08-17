@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:project_june1/passing%20data%20between%20screens/detailspage.dart';
 import 'package:project_june1/passing%20data%20between%20screens/dummy%20data.dart';
 
 void main() {
   runApp(MaterialApp(
     home: ProductHome(),
+    routes: {
+      'details' :(context) => ProductDetails()
+    },
   ));
 }
 
@@ -15,8 +19,7 @@ class ProductHome extends StatelessWidget {
         title: Text("Shop Now"),
       ),
       body: ListView(
-        children: products
-            .map((productonebyone) => Card(
+        children: products.map((e) => Card(
                   child: ListTile(
                     leading: Container(
                       height: 100,
@@ -24,12 +27,20 @@ class ProductHome extends StatelessWidget {
                         decoration: BoxDecoration(
                             image: DecorationImage(
                               fit: BoxFit.cover,
-                                image: NetworkImage(productonebyone["image1"])))),
-                    title: Text(productonebyone['name']),
-                    subtitle: Text('${productonebyone['price']}'),
+                                image: NetworkImage(e['image1'])))),
+                    title: Text(e['name']),
+                    subtitle: Text('\$ ${e['price']}'),
+                    onTap: (){
+                      gotoNextPage(context,e['id']);
+                    },
                   ),
-                )).toList(),
+                ))
+            .toList(),
       ),
     );
+  }
+
+  void gotoNextPage(BuildContext context, productId) { // productId = e['id]
+    Navigator.pushNamed(context, 'details',arguments: productId);
   }
 }
