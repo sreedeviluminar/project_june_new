@@ -11,14 +11,17 @@ class IntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     PageDecoration pageDecoration = PageDecoration(
-      titleTextStyle:const TextStyle(fontWeight: FontWeight.w900,fontSize: 40,color: Colors.purple),
-      bodyTextStyle: GoogleFonts.aBeeZee(fontStyle: FontStyle.italic,fontSize: 20,color: Colors.pinkAccent),
+      titleTextStyle:const TextStyle(
+          fontWeight: FontWeight.w900,
+          fontSize: 40,color: Colors.purple),
+      bodyTextStyle: GoogleFonts.aBeeZee(
+          fontStyle: FontStyle.italic,
+          fontSize: 20,color: Colors.pinkAccent),
       boxDecoration: const BoxDecoration(
         gradient: LinearGradient(colors: [
           Colors.black,
           Colors.grey,
           Colors.white38,
-          Colors.white
         ],
         begin: Alignment.bottomRight,
         end: Alignment.topLeft)
@@ -58,15 +61,17 @@ class IntroScreen extends StatelessWidget {
         activeColor: Colors.yellow,
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20))
-        )
-      ),
-    );
-  }
+        )),);}
+
+  //custom widget
   Widget IntroImage(String image) {
     return Container(
-      height: 500,
+      height: 700,
       width: double.infinity,
-      decoration: BoxDecoration(image: DecorationImage(image: NetworkImage(image),))
+      decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: NetworkImage(image),))
     );
   }
 }
