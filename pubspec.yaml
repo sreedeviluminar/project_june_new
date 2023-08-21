@@ -39,6 +39,7 @@ dependencies:
   flutter_custom_clippers: ^2.1.0
   webview_flutter: ^4.2.2
   rive:
+  introduction_screen: ^3.1.11
 
 
   # The following adds the Cupertino Icons font to your application.
