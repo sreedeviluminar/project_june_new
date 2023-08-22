@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class NewWidget extends StatelessWidget {
   final ImageProvider myimage;
   final String name;
