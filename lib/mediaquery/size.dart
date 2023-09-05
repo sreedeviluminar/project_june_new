@@ -2,19 +2,13 @@
 //Similar to the Expanded Widget
 // Can be used by calling its builder -MediaQuery.of
 // Doesn't need any additional dependencies
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => MaterialApp(
+  runApp( MaterialApp(
         home: Media(),
-        useInheritedMediaQuery: true,
-        locale: DevicePreview.locale(context),
-        builder: DevicePreview.appBuilder,
-      )));
+        ));
 }
 
 class Media extends StatelessWidget {
