@@ -2,13 +2,12 @@
 //Similar to the Expanded Widget
 // Can be used by calling its builder -MediaQuery.of
 // Doesn't need any additional dependencies
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp( MaterialApp(
-        home: Media(),
-        ));
+  runApp(MaterialApp(
+    home: Media(),
+  ));
 }
 
 class Media extends StatelessWidget {
