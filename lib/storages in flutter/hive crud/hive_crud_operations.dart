@@ -44,9 +44,13 @@ class _Hive_crudState extends State<Hive_crud> {
                     trailing: Wrap(
                       children: [
                         IconButton(
-                            onPressed: () {}, icon: const Icon(Icons.edit)),
+                            onPressed: () {
+                              showTask(context, mytask['id']);
+                            }, icon: const Icon(Icons.edit)),
                         IconButton(
-                            onPressed: () {}, icon: const Icon(Icons.delete))
+                            onPressed: () {
+                              deleteTask(mytask['id']);
+                            }, icon: const Icon(Icons.delete))
                       ],
                     ),
                   ),
@@ -64,6 +68,11 @@ class _Hive_crudState extends State<Hive_crud> {
   final content_controller = TextEditingController();
 
   void showTask(BuildContext context, int? itemkey) {
+    if(itemkey != null){
+      final existingTask = task.firstWhere((element) => element['id'] == itemkey);
+      task_controller.text    = existingTask['taskname'];
+      content_controller.text = existingTask['taskcont'];
+    }
     // itemkey issimilar to id in sqflite
     showModalBottomSheet(
         isScrollControlled: true,
@@ -120,7 +129,10 @@ class _Hive_crudState extends State<Hive_crud> {
     load_or_read_Task();
   }
 
-  void updateTaks(int? itemkey, Map<String, String> map) {}
+  Future<void> updateTaks(int? itemkey, Map<String, String> uptask) async{
+    await mybox.put(itemkey, uptask);
+    load_or_read_Task();// to refresh ui and update list
+  }
 
   void load_or_read_Task() {
     final task_from_hive = mybox.keys.map((key) {
@@ -136,5 +148,14 @@ class _Hive_crudState extends State<Hive_crud> {
     setState(() {
       task = task_from_hive.reversed.toList();
     });
+  }
+
+  Future<void> deleteTask(int itemkey) async{
+    await mybox.delete(itemkey);
+    load_or_read_Task();
+    ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            backgroundColor: Colors.red,
+            content: Text("Successfully Deleted")));
   }
 }
