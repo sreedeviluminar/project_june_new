@@ -46,6 +46,7 @@ dependencies:
   sqflite: ^2.3.0
   hive_flutter: ^1.1.0
   hive: ^2.2.3
+  get: ^4.6.6
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -55,6 +56,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner:
+  hive_generator:
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
