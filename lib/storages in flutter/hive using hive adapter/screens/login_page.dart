@@ -5,7 +5,7 @@ import 'package:project_june1/storages%20in%20flutter/hive%20using%20hive%20adap
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
-  //Hive.registerAdapter();
+  Hive.registerAdapter(UserAdapter());
   await Hive.openBox<User>('userData');
   runApp(MaterialApp(home: Login(),));
 
