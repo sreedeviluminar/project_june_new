@@ -1,9 +1,19 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:project_june1/storages%20in%20flutter/hive%20using%20hive%20adapter/database/hivedb.dart';
 import 'package:project_june1/storages%20in%20flutter/hive%20using%20hive%20adapter/models/user_model.dart';
 import 'package:project_june1/storages%20in%20flutter/hive%20using%20hive%20adapter/screens/login_page.dart';
 
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(UserAdapter());
+  await Hive.openBox<User>('userData');
+  runApp(MaterialApp(home: RegisterHive(),));
+
+}
 class RegisterHive extends StatelessWidget {
   final email = TextEditingController();
   final pass = TextEditingController();
@@ -38,7 +48,7 @@ class RegisterHive extends StatelessWidget {
                 final userlist = await HiveDb.instance.getUser();
                 validateSignUp(context, userlist);
               },
-              child: const Text("Login")),
+              child: const Text("Register")),
         ],
       ),
     );
