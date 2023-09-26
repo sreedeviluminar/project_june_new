@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:project_june1/storages%20in%20flutter/hive%20using%20hive%20adapter/database/hivedb.dart';
 import 'package:project_june1/storages%20in%20flutter/hive%20using%20hive%20adapter/models/user_model.dart';
@@ -9,7 +11,7 @@ void main() async{
   await Hive.initFlutter();
   Hive.registerAdapter(UserAdapter());
   await Hive.openBox<User>('userData');
-  runApp(MaterialApp(home: Login(),));
+  runApp(GetMaterialApp(home: Login(),));
 
 }
 class Login extends StatelessWidget {
@@ -70,15 +72,18 @@ class Login extends StatelessWidget {
         }
       });
       if(userFound == true){
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context)=>HiveHome(email:lemail)));
+        // Navigator.of(context).pushReplacement(MaterialPageRoute(
+        //     builder: (context)=>HiveHome(email:lemail)));
+        Get.offAll(HiveHome(email: lemail,));
       }else{
-        ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text("Login Failed,User Not Found")));
+        // ScaffoldMessenger.of(context).showSnackBar(
+        //     SnackBar(content: Text("Login Failed,User Not Found")));
+        Get.snackbar('FAILED', 'User Not Exist');
       }
     }else{
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Field MustNot be Empty")));
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //     SnackBar(content: Text("Field MustNot be Empty")));
+      Get.snackbar('ERROR', 'Fields Must not be empty');
     }
 
   }
