@@ -25,6 +25,7 @@ class ProductHome extends StatelessWidget {
             );
           } else {
             return GridView.builder(
+                itemCount: productController.productList.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2),
                 itemBuilder: (context, index) {

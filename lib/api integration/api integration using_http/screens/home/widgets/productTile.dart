@@ -4,7 +4,6 @@ import 'package:project_june1/api%20integration/api%20integration%20using_http/m
 
 class ProductTile extends StatelessWidget {
   final ProductModel product;
-
   ProductTile(this.product);
 
   @override
@@ -16,10 +15,11 @@ class ProductTile extends StatelessWidget {
             height: 180,
             width: double.infinity,
             decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(5))),
+                borderRadius: BorderRadius.all(
+                    Radius.circular(5))),
             child: CachedNetworkImage(
               imageUrl: product.image!,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
           ),
           const SizedBox(
@@ -27,7 +27,9 @@ class ProductTile extends StatelessWidget {
           ),
           Text(
             product.title!,
-            style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 20,
+                fontWeight: FontWeight.bold),
+            maxLines: 2,
           ),
           Text(
             '${product.price!}\$',
