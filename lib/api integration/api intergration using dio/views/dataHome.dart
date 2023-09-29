@@ -66,6 +66,7 @@ class DataHome extends StatelessWidget {
           return controller.fetchData();
         },
         child: ScrollablePositionedList.builder(
+           itemScrollController: controller.itemController,
             physics: BouncingScrollPhysics(),
             itemCount: controller.datas.length,
             itemBuilder: (context, index) {
