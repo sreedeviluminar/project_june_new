@@ -28,4 +28,8 @@ class FirebaseHelper {
       return e.message;
     }
   }
+  ///logout
+ Future<void> logOut() async{
+    await auth.signOut();
+ }
 }
