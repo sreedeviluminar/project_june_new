@@ -3,57 +3,60 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:project_june1/firebase_example/email_pass_auth/firbase_db.dart';
 import 'package:project_june1/firebase_example/email_pass_auth/home_fir.dart';
+import 'package:project_june1/firebase_example/email_pass_auth/reg_fir.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+    apiKey: "AIzaSyDiq7-WCnuL3BMWaydX34c4y3S2dKEN9qc",
+    projectId: "famous-smithy-394706",
+    appId: '1:228270350036:android:9b5491946414627eb5e541',
+    messagingSenderId: '',
+  ),);
+  // to get the currently logined in user
   User? user = FirebaseAuth.instance.currentUser;
-  runApp(MaterialApp(home: user == null ? Login_fire() : HomeFire()));
+  runApp(MaterialApp(home: user == null ? LoginFire() : HomeFire()));
 }
 
-class Login_fire extends StatefulWidget {
+class LoginFire extends StatefulWidget {
+  const LoginFire({super.key});
+
   @override
-  State<Login_fire> createState() => _Login_fireState();
+  State<LoginFire> createState() => _LoginFireState();
 }
 
-class _Login_fireState extends State<Login_fire> {
-  final username_controller = TextEditingController();
-  final password_controller = TextEditingController();
+class _LoginFireState extends State<LoginFire> {
+  final email = TextEditingController();
+  final pass = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Login"),
-      ),
+      appBar: AppBar(title: const Text("Login")),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(15.0),
             child: TextField(
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'UserName'),
-              controller: username_controller,
+              controller: email,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(15.0),
             child: TextField(
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'PassWord'),
-              controller: password_controller,
+              controller: pass,
             ),
           ),
           ElevatedButton(
               onPressed: () {
-                String email = username_controller.text.trim();
-                String pass = password_controller.text.trim();
+                String mail = email.text.trim();
+                String pwd = pass.text.trim();
 
-                FirebaseHelper()
-                    .login(email: email, password: pass)
-                    .then((result) {
+                FirebaseHelper().signIn(email: mail, password: pwd).then((result) {
                   if (result == null) {
-                    Navigator.push(context,
+                    Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => HomeFire()));
                   } else {
                     ScaffoldMessenger.of(context)
@@ -61,11 +64,13 @@ class _Login_fireState extends State<Login_fire> {
                   }
                 });
               },
-              child: const Text('Login Here')),
-          SizedBox(
-            height: 20,
-          ),
-          TextButton(onPressed: () {}, child: const Text('Register Here'))
+              child: const Text('Login')),
+          TextButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Register_fire()));
+              },
+              child: Text("Not a user ? register here!!"))
         ],
       ),
     );

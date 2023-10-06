@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "1023090255781",
-    "project_id": "micro-atrium-398208",
-    "storage_bucket": "micro-atrium-398208.appspot.com"
+    "project_number": "228270350036",
+    "project_id": "famous-smithy-394706",
+    "storage_bucket": "famous-smithy-394706.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1023090255781:android:6c966585d24fe0ed30ea4c",
+        "mobilesdk_app_id": "1:228270350036:android:9b5491946414627eb5e541",
         "android_client_info": {
           "package_name": "com.luminar.project_june1"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAqL_ID5siK41KMwdkTg-tIiK1UJPeUUjE"
+          "current_key": "AIzaSyDiq7-WCnuL3BMWaydX34c4y3S2dKEN9qc"
         }
       ],
       "services": {
