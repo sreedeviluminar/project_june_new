@@ -22,12 +22,14 @@ class _RegistrationFireState extends State<Register_fire> {
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: TextField(
+              decoration: InputDecoration(border: OutlineInputBorder(),hintText: "UserName"),
               controller: email,
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: TextField(
+              decoration: InputDecoration(border: OutlineInputBorder(),hintText: "Password"),
               controller: pass,
             ),
           ),

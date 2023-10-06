@@ -40,12 +40,15 @@ class _LoginFireState extends State<LoginFire> {
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: TextField(
+              decoration: InputDecoration(border: OutlineInputBorder(),hintText: "UserName"),
               controller: email,
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: TextField(
+              decoration: InputDecoration(border: OutlineInputBorder(),hintText: "PassWord"),
+
               controller: pass,
             ),
           ),
