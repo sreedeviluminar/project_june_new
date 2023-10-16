@@ -33,7 +33,7 @@ if (keystorePropertiesFile.exists()) {
 }
 android {
     namespace "com.luminar.project_june1"
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 34
     ndkVersion "25.1.8937393"
 
     compileOptions {
