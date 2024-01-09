@@ -17,7 +17,7 @@ class ProductHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Shop Now"),
+        title: const Text("Shop Now"),
       ),
       body: ListView(
         children: products.map((e) => Card(
