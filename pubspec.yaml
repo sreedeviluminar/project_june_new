@@ -49,7 +49,7 @@ dependencies:
   get: ^4.6.6
   email_validator: ^2.1.17
   flutter_secure_storage: ^5.0.0
-
+  flutter_local_notifications:
 
 
   #api integration using http
@@ -83,6 +83,7 @@ dependencies:
   permission_handler: ^11.0.1 #used to check permission
 
   provider: ^6.0.4
+  geolocator: ^10.1.0
 
 dev_dependencies:
   flutter_test:

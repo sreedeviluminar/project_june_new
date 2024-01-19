@@ -43,7 +43,8 @@ class _RegistrationFireState extends State<Register_fire> {
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => LoginFire()));
                   }else{
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(result)));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(result)));
                   }
                 });
               },
