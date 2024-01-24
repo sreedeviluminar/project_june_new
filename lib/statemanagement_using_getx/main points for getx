@@ -1,0 +1,51 @@
+1. GetXController: State management in GetX revolves around controllers.
+                Create a class that extends GetXController or GetxController
+                to manage your application's state.
+
+class MyController extends GetxController {
+  // Your state variables and methods go here
+}
+
+2. Observables (.obs): To make a variable observable and automatically update the UI when it changes,
+                       use the .obs extension.
+
+var myVariable = 0.obs;
+
+3. Get.put for Dependency Injection: To instantiate a controller and make it available
+                                     for the entire widget tree, use Get.put().
+
+final MyController myController = Get.put(MyController());
+
+4. Obx Widget for Reactive UI: Use the Obx widget to automatically rebuild the UI when observables change.
+
+Obx(() => Text('Count: ${myController.myVariable}')),
+
+5. Reactive State Management: Leverage reactive programming concepts to update the UI
+                              in response to changes in the application state.
+
+myController.myVariable.value++; // Trigger UI update
+
+6. Navigation with GetX: GetX provides a simplified way to handle navigation
+                         using the Get.to(), Get.back(), and other methods.
+
+Get.to(MyNextScreen());
+
+7. Named Routes: Define named routes using GetPage to simplify navigation.
+
+GetMaterialApp(
+  getPages: [
+    GetPage(name: '/next', page: () => MyNextScreen()),
+  ],
+)
+
+8. Dependency Injection: GetX provides a simple way to manage dependencies using Get.put() and Get.find().
+
+Get.put(ApiService()); // Register a dependency
+final apiService = Get.find<ApiService>(); // Access the dependency
+
+9. Snackbars and Dialogs: Easily show snackbar messages and dialogs using Get.snackbar() and Get.defaultDialog().
+
+Get.snackbar('Title', 'Message');
+
+10. Routing and Navigation: GetX simplifies navigation, route management, and back button handling.
+                            Use Get.to(), Get.off(), and other methods for navigation.
