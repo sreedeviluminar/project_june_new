@@ -1,5 +1,6 @@
-import 'package:project_june1/api%20integration/api%20integration%20using_http/model/productModel.dart';
 import 'package:http/http.dart'as http;
+
+import '../model/productModel.dart';
 
 class HttpService{
   static Future<List<ProductModel>> fetchProductus() async{

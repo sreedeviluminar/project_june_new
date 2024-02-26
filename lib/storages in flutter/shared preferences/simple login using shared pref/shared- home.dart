@@ -43,7 +43,7 @@ class _SharedHomeState extends State<SharedHome> {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => LoginShared()));
                 },
-                child: Text('LOGOUT'))
+                child: const Text('LOGOUT'))
           ],
         ),
       ),
